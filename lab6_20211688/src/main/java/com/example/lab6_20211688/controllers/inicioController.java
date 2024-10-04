@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class inicioController {
@@ -48,6 +50,14 @@ public class inicioController {
         return "redirect:/peliculas";
     }
 
+    @GetMapping("editarPelicula")
+    public String editarPeli(@RequestParam("id") Integer id, Model model){
+        model.addAttribute("pelicula", peliculasRepository.findById(id).get());
+        return "editarPelicula";
+    }
+
+
+
 
     @GetMapping("/peliculas")
     public String peliculas(Model model){
@@ -56,4 +66,6 @@ public class inicioController {
 
         return "peliculas";
     }
+
+
 }

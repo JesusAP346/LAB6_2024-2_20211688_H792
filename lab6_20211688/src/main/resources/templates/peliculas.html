@@ -34,7 +34,7 @@
                     <td th:text="${pelicula.fechaEstreno}"></td>
                     <td th:text="${pelicula.duracionMinutos}"></td>
                     <td>
-                        <a><button type="button" class="btn btn-success">Editar</button></a>
+                        <a th:href="@{'/editarPelicula?id=' + ${pelicula.peliculaId}}"><button type="button" class="btn btn-success">Editar</button></a>
                     </td>
                 </tr>
 
