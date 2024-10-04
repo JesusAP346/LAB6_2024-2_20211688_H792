@@ -9,8 +9,38 @@
 </head>
 <body>
     <div class="container">
-        <div th:insert="~{fragments/barraSuperior.html :: barraSuperior}"></div>
+        <div class="row">
+            <div th:insert="~{fragments/barraSuperior.html :: barraSuperior}"></div>
 
+        </div>
+        <div class="row">
+            <a th:href="@{/crearPelicula}"><button type="button" class="btn btn-success">Crear pelicula</button></a>
+        </div>
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">titulo</th>
+                    <th scope="col">fechaEstreno</th>
+                    <th scope="col">duracionMinutos</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="pelicula,var : ${listaPeliculas}">
+                    <th th:text="${var.index + 1}"></th>
+                    <td th:text="${pelicula.titulo}"></td>
+                    <td th:text="${pelicula.fechaEstreno}"></td>
+                    <td th:text="${pelicula.duracionMinutos}"></td>
+                    <td>
+                        <a><button type="button" class="btn btn-success">Editar</button></a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
